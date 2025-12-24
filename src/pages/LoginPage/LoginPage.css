@@ -1,0 +1,78 @@
+.loginPage {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    background: #272946;
+}
+
+.loginCard {
+    width: min(380px, 100%);
+    max-width: 100%;
+    padding: 24px;
+    border-radius: 16px;
+    background: transparent;
+}
+
+.loginTitle,
+.loginLabelText {
+    color: #e7ffee;
+}
+
+.loginTitle {
+    margin: 0 0 18px;
+}
+
+.loginInput {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+
+    background: #eda031;
+    color: #e7ffee;
+    caret-color: #e7ffee;
+}
+
+.loginInput::placeholder {
+    color: rgba(231, 255, 238, 0.75);
+}
+
+.loginInput:focus {
+    box-shadow: 0 0 0 3px rgba(237, 160, 49, 0.35);
+}
+
+.loginError {
+    margin: 12px 0;
+    color: #eda031;
+}
+
+.loginButton {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 12px;
+    background: #eda031;
+    color: #e7ffee;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.loginButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.loginPage, .loginCard, .loginInput, .loginButton {
+    box-sizing: border-box;
+}
+
+.loginField {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+

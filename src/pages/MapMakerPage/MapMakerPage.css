@@ -1,0 +1,335 @@
+:root {
+    --mm-navy: #272946;
+    --mm-orange: #eda031;
+    --mm-tile: #d9d9d9;
+    --mm-bg: #f2f2f2;
+    --mm-text: #e7ffee;
+
+    --mm-hover: rgba(237, 160, 49, 0.15);
+    --mm-active: rgba(237, 160, 49, 0.25);
+    --mm-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.mmRoot {
+    height: 100vh;
+    width: 100%;
+    background: var(--mm-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.mmViewport {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(var(--mm-orange) 1.2px, transparent 1.2px);
+    background-size: 14px 14px;
+    touch-action: none;
+    user-select: none;
+}
+
+.mmTop {
+    position: fixed;
+    left: 28px;
+    top: 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.mmMenuWrap {
+    position: relative;
+    pointer-events: auto;
+    width: 220px;
+}
+
+.mmBrand {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+
+    background: var(--mm-navy);
+    color: var(--mm-orange);
+    border-radius: 18px;
+
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+.mmMenu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 16px;
+
+    background: var(--mm-navy);
+    box-shadow: var(--mm-shadow);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 120ms ease, transform 120ms ease, visibility 120ms;
+}
+
+.mmMenuWrap:hover .mmMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mmMenuItem {
+    width: 100%;
+    text-align: left;
+
+    border: none;
+    background: transparent;
+    color: var(--mm-text);
+
+    padding: 12px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.mmMenuItem:hover {
+    background: var(--mm-hover);
+    color: var(--mm-orange);
+}
+
+.mmScene {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5000px;
+    height: 5000px;
+}
+
+.mmTile {
+    position: absolute;
+    background: var(--mm-tile);
+    border: 3px solid var(--mm-orange);
+    box-sizing: border-box;
+}
+
+.mmBottomBar {
+    position: fixed;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    background: var(--mm-navy);
+    border-radius: 16px;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: auto;
+}
+
+.mmDivider {
+    width: 1px;
+    height: 28px;
+    background: rgba(237, 160, 49, 0.35);
+    margin: 0 4px;
+}
+
+.mmToolBtn,
+.mmModalClose {
+    border: none;
+    background: transparent;
+    padding: 0;
+    line-height: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--mm-orange);
+    cursor: pointer;
+}
+
+.mmToolBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+}
+
+.mmToolBtn:hover,
+.mmModalClose:hover {
+    background: var(--mm-hover);
+}
+
+.mmToolBtn.isActive {
+    background: var(--mm-active);
+}
+
+.mmIcon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    flex: 0 0 auto;
+}
+
+.mmIcon * {
+    stroke: currentColor;
+    fill: none;
+}
+
+.mmModalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.35);
+    display: grid;
+    place-items: center;
+}
+
+.mmModal {
+    width: min(720px, calc(100vw - 32px));
+    background: var(--mm-navy);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.4);
+    color: var(--mm-text);
+}
+
+.mmModalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 6px 12px;
+}
+
+.mmModalTitle {
+    font-weight: 700;
+    color: var(--mm-orange);
+}
+
+.mmModalClose {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+}
+
+.mmFurnitureGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    padding: 6px;
+}
+
+.mmFurnitureCard {
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--mm-text);
+    text-align: left;
+}
+
+.mmFurnitureCard:hover {
+    background: var(--mm-hover);
+}
+
+.mmFurnitureImg {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.mmFurnitureName {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.mmModalHint {
+    padding: 10px 12px 6px;
+    opacity: 0.85;
+    font-size: 13px;
+}
+
+.mmFurnitureOnMap {
+    position: absolute;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+.mmSelectionRect {
+    position: absolute;
+    border: 2px dashed var(--mm-orange);
+    background: rgba(237, 160, 49, 0.12);
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.mmSaveError {
+    position: fixed;
+    left: 28px;
+    top: 92px;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--mm-text);
+    padding: 10px 12px;
+    border-radius: 12px;
+}
+
+.mmModalLabel {
+    display: grid;
+    gap: 8px;
+    padding: 6px;
+    color: var(--mm-text);
+}
+
+.mmModalInput {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--mm-text);
+}
+
+.mmModalInput:focus {
+    box-shadow: 0 0 0 3px rgba(237, 160, 49, 0.25);
+}
+
+.mmModalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 6px 6px;
+}
+
+.mmModalBtn,
+.mmModalBtnGhost {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.mmModalBtn {
+    background: var(--mm-orange);
+    color: var(--mm-navy);
+}
+
+.mmModalBtnGhost {
+    background: transparent;
+    color: var(--mm-orange);
+}
+
+.mmModalBtnGhost:hover {
+    background: var(--mm-hover);
+}
