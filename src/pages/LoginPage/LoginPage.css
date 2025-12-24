@@ -76,3 +76,48 @@
     margin-bottom: 20px;
 }
 
+.loginLinks {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+}
+
+.loginLinksText {
+    color: #e7ffee;
+    opacity: 0.9;
+}
+
+.loginLink {
+    color: #eda031;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.loginLink:hover {
+    text-decoration: underline;
+}
+
+.registerLinks {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+}
+
+.registerLinksText {
+    color: #e7ffee;
+    opacity: 0.9;
+}
+
+.registerLink {
+    color: #eda031;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.registerLink:hover {
+    text-decoration: underline;
+}

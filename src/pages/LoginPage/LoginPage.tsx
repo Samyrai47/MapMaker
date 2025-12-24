@@ -1,5 +1,5 @@
 import {FormEvent, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {signIn, selectAuthError, selectAuthLoading} from "../../features/auth/authSlice";
 import "./LoginPage.css";
@@ -62,6 +62,13 @@ export function LoginPage() {
                 <button className="loginButton" type="submit" disabled={isLoading}>
                     {isLoading ? "Signing in..." : "Sign in"}
                 </button>
+
+                <div className="loginLinks">
+                    <span className="loginLinksText">Don't have an account yet?</span>
+                    <Link className="loginLink" to="/register">
+                        Sign Up
+                    </Link>
+                </div>
             </form>
         </div>
     );

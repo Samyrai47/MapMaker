@@ -16,3 +16,7 @@ body {
   background: #272946;
   overflow: hidden;
 }
+
+button {
+  font: inherit;
+}

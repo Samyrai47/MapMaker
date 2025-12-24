@@ -47,6 +47,7 @@
 .btn {
     background: var(--mm-orange);
     color: #272946;
+    font-size: 20px;
 }
 
 .btnGhost {

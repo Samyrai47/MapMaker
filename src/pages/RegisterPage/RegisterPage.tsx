@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { resetAuthError, selectAuthError, selectAuthLoading, signUp } from "../../features/auth/authSlice";
 import "../LoginPage/LoginPage.css";
@@ -82,6 +82,13 @@ export function RegisterPage() {
                 <button className="loginButton" type="submit" disabled={isLoading}>
                     {isLoading ? "Creating..." : "Sign Up"}
                 </button>
+
+                <div className="registerLinks">
+                    <span className="registerLinksText">Already have an account?</span>
+                    <Link className="registerLink" to="/login">
+                        Sign In
+                    </Link>
+                </div>
             </form>
         </div>
     );
