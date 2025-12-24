@@ -79,7 +79,7 @@ MapMaker - это веб-приложение для создания и хра�
 - PostgreSQL (локально или через Docker - docker compose есть в репозитории backend'а)
 - Spring Boot 4.0
 - Java (JDK 21)
-- Maven
+- Maven +3.8
 - React +19 + TypeScript
 - Node.js +18
 - npm +8
@@ -88,8 +88,13 @@ MapMaker - это веб-приложение для создания и хра�
 
 ### Инструкция:
 
+- git clone https://github.com/Samyrai47/MapMakerBackend
+- cd MapMakerBackend
 - docker compose up -d
 - mvn spring-boot:run
+
+- git clone https://github.com/Samyrai47/MapMaker
+- cd MapMaker
 - npm install
 - npm start
 - Переходим по http://localhost:3000
