@@ -4,6 +4,11 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {signIn, selectAuthError, selectAuthLoading} from "../../features/auth/authSlice";
 import "./LoginPage.css";
 
+import {Card} from "../../ui/Card";
+import {TextField} from "../../ui/TextField";
+import {Button} from "../../ui/Button";
+import {FormError} from "../../ui/FormError";
+
 export function LoginPage() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -26,42 +31,32 @@ export function LoginPage() {
 
     return (
         <div className="loginPage">
-            <form className="loginCard" onSubmit={onSubmit}>
-                <h1 className="loginTitle">Sign In</h1>
+            <Card as="form" onSubmit={onSubmit} title="Sign In">
+                <TextField
+                    label="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    required
+                />
 
-                <label>
-                    <div className="loginLabelText" style={{marginBottom: 6}}>Email</div>
-                    <input
-                        className="loginInput"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="email"
-                        autoComplete="email"
-                        placeholder="you@example.com"
-                        required
-                    />
-                </label>
+                <TextField
+                    label="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    autoComplete="current-password"
+                    placeholder="••••••••"
+                    required
+                />
 
-                <div style={{height: 12}}/>
+                <FormError message={error}/>
 
-                <label>
-                    <div className="loginLabelText" style={{marginBottom: 6}}>Password</div>
-                    <input
-                        className="loginInput"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        type="password"
-                        autoComplete="current-password"
-                        placeholder="••••••••"
-                        required
-                    />
-                </label>
-
-                {error && <div className="loginError" role="alert">{error}</div>}
-
-                <button className="loginButton" type="submit" disabled={isLoading}>
-                    {isLoading ? "Signing in..." : "Sign in"}
-                </button>
+                <Button type="submit" disabled={isLoading} loading={isLoading} loadingText="Signing in...">
+                    Sign in
+                </Button>
 
                 <div className="loginLinks">
                     <span className="loginLinksText">Don't have an account yet?</span>
@@ -69,7 +64,7 @@ export function LoginPage() {
                         Sign Up
                     </Link>
                 </div>
-            </form>
+            </Card>
         </div>
     );
 }
